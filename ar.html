@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>fQR Code Scanner</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="main.css" />
+    <script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"></script>
+    <script src="https://unpkg.com/arweave/bundles/web.bundle.js"></script>
+
+  </head>`
+
+  <body>
+
+
+
+    <style>
+* {box-sizing: border-box;}
+
+body { 
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  padding: 20px 10px;
+}
+
+.header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px; 
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.header a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.header a.active {
+  background-color: black;
+  color: white;
+}
+
+.header-right {
+  float: right;
+}
+
+@media screen and (max-width: 500px) {
+  .header a {
+    float: left;
+    /*display: block;*/
+    text-align: left;
+  }
+  
+  .header-right {
+    float: right;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a href="#default" class="logo">fQR Weave</a>
+  <div class="header-right">
+    <a class="active" href="#">Home</a>
+    <a href="#contact">fQR generator</a>
+    <a href="#about">Blog</a>
+  </div>
+</div> <br><br>
+
+
+
+    <div id="container">
+      <h1>fQR Code Scanner</h1>
+
+      <a id="btn-scan-qr">
+        <img src="https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2017/07/1499401426qr_icon.svg">
+      <a/>
+
+      <canvas hidden="" id="qr-canvas"></canvas>
+
+      <div id="qr-result" hidden="">
+        <b>Product ID:</b> <span id="outputData"></span>
+      </div>
+    </div> <br>
+<script src="bundle.js"></script>
+  
+  
+    
+    <br><br><center><label for="product">search the ID data: </label><center><br>
+
+        <input type="text" id="product" name="product" required
+                minlength="43" maxlength="43" size="20" style="border-width: 5px; border-style: solid; height: 25px"> <button id = "search"style = "color: white; background-color: black; cursor: pointer; border-radius: 10px; width: 75px; height: 35px">search</button> <br>
+
+        
+
+      <script type="text/javascript">
+        
+        document.getElementById('search').addEventListener("click", function(){
+        const arweave = Arweave.init();
+        arweave.network.getInfo().then(console.log);
+
+        var obj = setInterval(async ()=>{
+        clearInterval(obj)
+        await arweave.transactions.getData(String(document.getElementById("product").value), {decode: true, string: true}).then(function(data) {document.getElementById('test').innerHTML = data})
+      }) })
+
+      </script>
+
+      <center><p id = "test"></p></center>
+
+
+    
+    
+  </body>
+ 
+
+</html>
