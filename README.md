@@ -13,7 +13,7 @@ product's owner (user) only:</p>
 </ul>
 
  <h3>fQR Generator:</h3>
- Using arweave's blockweave concept, each fQR code represent a data transaction. From the generator UI, the user inputs his product's information (in pre-defined fields): string and integers, the output is a `string` :
+ Using arweave's blockweave concept, each fQR code represent a data transaction. From the generator UI, the user inputs his product's information (in pre-defined fields): string and integers, the output is a string :
 
 
 `let transaction = await arweave.createTransaction( {data: metadata.toString()}, key);`
@@ -24,4 +24,13 @@ product's owner (user) only:</p>
 
 Then the transaction is signed and broadcasted (posted) in the blockchain by the verified wallet.
 
-in the last step, the QR Code generator transform the transaction ID string into a 2D QR code.
+in the last step, the QR Code generator transform the transaction ID string into a 2D QR code:
+
+  <center><img src="https://i.ibb.co/P4jJbyL/fqr-tx.png" alt="fqr-tx" border="0"></center><br>
+
+<h3>fQR Reader:</h3>
+The scanner concept is simple in the alpha release. the fQR code is scanned using the <a href="https://github.com/wojak-frog/ARweave-fQR/blob/master/fqrReader/bundle.js">QR code reader</a>, then the transaction ID data are decoded manually by the user:
+
+  `await arweave.transactions.getData( String(document.getElementById("product").value ), {decode: true, string: true}).then( function(data) {document.getElementById('tx_data').innerHTML = data} )`
+  
+The destroying functionality will be implemented in the next version, which overrides VIDs with fQR Weave "destroying transactions".
