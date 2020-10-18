@@ -13,4 +13,15 @@ product's owner (user) only:</p>
 </ul>
 
  <h3>fQR Generator:</h3>
- Using arweave's blockweave concept, each fQR code represent a data transaction. From the generator UI, the user inputs his product's information (in pre-defined fields): string and integers, the output is a `string` .
+ Using arweave's blockweave concept, each fQR code represent a data transaction. From the generator UI, the user inputs his product's information (in pre-defined fields): string and integers, the output is a `string` :
+
+
+`let transaction = await arweave.createTransaction( {data: metadata.toString()}, key);`
+
+`metadata` holds the product's information provided by the user. After that, the verified user ID (VID) is attached to the transaction by the `addTag()` method:
+
+`transaction.addTag(VID);`
+
+Then the transaction is signed and broadcasted (posted) in the blockchain by the verified wallet.
+
+in the last step, the QR Code generator transform the transaction ID string into a 2D QR code.
