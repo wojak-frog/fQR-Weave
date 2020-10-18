@@ -39,3 +39,25 @@ The destroying functionality will be implemented in the next version, which over
 <ul>
   <li>First you need to create an arweave wallet with AR balance. <a href="https://www.arweave.org/wallet">Tap here to claim a token</a></li>
   <li>Login with your wallet at <a href="https://chko2ym6yzz34hzmtt6mycaozsese5cgqkhwbupw7xillsm5qm4a.arweave.net/EdTtYZ7Gc74fLJz8zAgOzIkidEaCj2DR9v3Qtcmdgzg">fQR Generator</a> and generate your first fQR !</li>
+  
+
+<h3>Useful Links:</h3>
+
+  <h2>Learn more about:</h2>
+  <ul>
+    <li><a href="https://l33wlywrm5ainklcefljurvcbxamf5o2cujqgfda5xzi2powi3ga.arweave.net/Xvdl4tFnQIapYiFWmkaiDcDC9doVEwMUYO3yjT3WRsw">fQR Weave project</a></li>
+    <li><a href="https://hjyckowqnnzrgirl3sqwz65youx2t75fsaojrea2odcjos5xjf3q.arweave.net/OnAlOtBrcxMiK9yhbPu4dS-p_6WQHJiQGnDEl0u3SXc">fQR Generator><a></li>
+    <li><a href="https://ahuakhbrcivsfiiwvukizwxihgtm7voycntibfrtog2a53oeajba.arweave.net/AegFHDESKyKhFq0UjNroOabP1dgTZoCWM3G0Du3EAkI">fQR Reader</a></li>
+  </ul>
+  
+  <h2>fQR Weave listings:</h2>
+  <ul>
+  <li><a href="https://mtfvznw2pwxykoicvxpoe7ao5rp4nhaueueux2bbe4klxankdhra.arweave.net/ZMtcttp9r4U5Aq3e4nwO7F_GnBQlCUvoIScUu4GqGeI/#">Arweave Apps</a></li>
+  
+  <h2>Social media links:</h2>
+  <ul>
+  <li><a href="https://twitter.com/Fqr_Weave"></a>Twitter</li>
+  <li><a href="https://discord.com/invite/pcdGGs">Discord</a></li>
+  <li><a href="https://t.me/fqr_weave">Telegram</a></li>
+  </ul>
+  </ul>
