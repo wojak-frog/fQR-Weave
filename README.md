@@ -46,13 +46,14 @@ The destroying functionality will be implemented in the next version, which over
   <h3>Learn more about:</h3>
   <ul>
     <li><a href="https://l33wlywrm5ainklcefljurvcbxamf5o2cujqgfda5xzi2powi3ga.arweave.net/Xvdl4tFnQIapYiFWmkaiDcDC9doVEwMUYO3yjT3WRsw">fQR Weave project</a></li>
-    <li><a href="https://hjyckowqnnzrgirl3sqwz65youx2t75fsaojrea2odcjos5xjf3q.arweave.net/OnAlOtBrcxMiK9yhbPu4dS-p_6WQHJiQGnDEl0u3SXc">fQR Generator><a></li>
+    <li><a href="https://hjyckowqnnzrgirl3sqwz65youx2t75fsaojrea2odcjos5xjf3q.arweave.net/OnAlOtBrcxMiK9yhbPu4dS-p_6WQHJiQGnDEl0u3SXc">fQR Generator<a></li>
     <li><a href="https://ahuakhbrcivsfiiwvukizwxihgtm7voycntibfrtog2a53oeajba.arweave.net/AegFHDESKyKhFq0UjNroOabP1dgTZoCWM3G0Du3EAkI">fQR Reader</a></li>
   </ul>
   
   <h3>fQR Weave listings:</h3>
   <ul>
   <li><a href="https://mtfvznw2pwxykoicvxpoe7ao5rp4nhaueueux2bbe4klxankdhra.arweave.net/ZMtcttp9r4U5Aq3e4nwO7F_GnBQlCUvoIScUu4GqGeI/#">Arweave Apps</a></li>
+  <li><a href="https://community.xyz/#k_YRh48Ex8SKU5MOnYcgNhTZBFNiJ1Kx1Ouv_mV5dD8"></a>Community.xyz</li>
   </ul>
   
   <h3>Social media links:</h3>
