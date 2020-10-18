@@ -1,4 +1,4 @@
-# ARweave-fQR
+# fQR Weave
 a new QR code based on ARweave blockchain to replace and solve the trustless 3rd parties (Retailers): https://fqrweave.tech
 
 <h1>What is Arweave blockchain?</h1>
@@ -33,4 +33,9 @@ The scanner concept is simple in the alpha release. the fQR code is scanned usin
 
   `await arweave.transactions.getData( String(document.getElementById("product").value ), {decode: true, string: true}).then( function(data) {document.getElementById('tx_data').innerHTML = data} )`
   
-The destroying functionality will be implemented in the next version, which overrides VIDs with fQR Weave "destroying transactions".
+The destroying functionality will be implemented in the next version, which overrides generated transactions with fQR Weave "destroying transactions".
+
+<h3>Try it out:</h3>
+<ul>
+  <li>First you need to create an arweave wallet with AR balance. <a href="https://www.arweave.org/wallet">Tap here to claim a token</a></li>
+  <li>Login with your wallet at <a href="https://chko2ym6yzz34hzmtt6mycaozsese5cgqkhwbupw7xillsm5qm4a.arweave.net/EdTtYZ7Gc74fLJz8zAgOzIkidEaCj2DR9v3Qtcmdgzg">fQR Generator</a> and generate your first fQR !</li>
