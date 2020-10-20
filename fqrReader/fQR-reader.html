@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>fQR Code Scanner</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="main.css" />
+    <script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"></script>
+    <script src="https://unpkg.com/arweave/bundles/web.bundle.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Tajawal" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet" />
+
+  </head>
+
+  <body>
+
+
+
+    <style>
+* {box-sizing: border-box;}
+
+body { 
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+
+  font-family: "Cairo";
+  font-size: 23px
+}
+
+h3 {
+
+  font-family: "Tajawal";
+  font-size: 17px
+}
+
+p {
+  font-family: "Cairo";
+  font-size: 15px
+}
+
+.header {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  padding: 20px 10px;
+}
+
+.header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px; 
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.header a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.header a.active {
+  background-color: black;
+  color: white;
+}
+
+.header-right {
+  float: right;
+}
+
+@media screen and (max-width: 500px) {
+  .header a {
+    float: left;
+    /*display: block;*/
+    text-align: left;
+  }
+  
+  .header-right {
+    float: right;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a href="#default" class="logo">fQR Weave</a>
+  <div class="header-right">
+    <a class="active" href="https://fqrweave.tech">Home</a>
+  </div>
+</div> <br><br><br><br><br><br>
+
+
+<center><div style="border-style: dashed; border-radius: 50px; height: 550px; width: 300px; float: center">
+    <div id="container">
+      <h1>fQR Code Scanner</h1>
+      <h3>Tap on the QR code below icon to activate the scanner</h3>
+
+      
+
+      <a id="btn-scan-qr">
+        <br>
+        <img src="https://i.ibb.co/mRmpQFV/Qrcode.png">
+      <a/>
+
+      <canvas hidden="" id="qr-canvas"></canvas>
+
+      <div id="qr-result" hidden="">
+        <p>Product ID:</p> <span id="outputData"></span>
+      </div>
+    </div> <br>
+<script src="bundle.js"></script>
+  
+  
+    
+    <br><br><br><center><label for="product">search the ID data: </label><center><br>
+
+        <input type="text" id="product" name="product" required
+                minlength="43" maxlength="43" size="20" style="border-width: 5px; border-style: solid; height: 25px"> <button id = "search"style = "color: white; background-color: black; cursor: pointer; border-radius: 10px; width: 75px; height: 35px">search</button> <br>
+
+        
+
+      <script type="text/javascript">
+        
+        document.getElementById('search').addEventListener("click", function(){
+        const arweave = Arweave.init();
+
+        var obj = setInterval(async ()=>{
+        clearInterval(obj)
+        await arweave.transactions.getData(String(document.getElementById("product").value), {decode: true, string: true}).then(function(data) {document.getElementById('test').innerHTML = data})
+      }) })
+
+      </script>
+
+      <center><p id = "test"></p></center>
+
+      
+</center></div>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+
+<div style="position: static; left: 0; bottom: 0; width: 100%; background-color: gray; color: white; ">
+  <div style="text-align: left; margin-left: 1.5em">
+    <br>
+ 
+    <a href="https://www.arweave.org/wallet" style="text-decoration: none; color: #D5D5D5"><p> # Claim A Token<p></a>
+      <a href="https://arweave.org" style="text-decoration: none; color: #D5D5D5"><p> # Arweave.org<p></a>
+        <a href="https://www.arweave.org/technology#permaweb" style="text-decoration: none; color: #D5D5D5"><p> # PermaWeb<p></a>
+  </div>
+
+  <div style="text-align: right; margin-right: 1.5em">
+    <br>
+ 
+    <a href="https://t.me/fqr_weave" style="text-decoration: none; color: #D5D5D5"><p> # Telegram<p></a>
+      <a href="https://twitter.com/Fqr_Weave" style="text-decoration: none; color: #D5D5D5"><p> # Twitter<p></a>
+        <a href="https://discord.gg/pcdGGs" style="text-decoration: none; color: #D5D5D5"><p> # Discord<p></a>
+        <a href="https://github.com/wojak-frog/fQR-Weave" style="text-decoration: none; color: #D5D5D5"><p> # Github<p></a>
+  </div>
+
+  <div style="text-align: center; color: #D5D5D5"><p>© Copyright 2020. all rights reserved</p></div>
+  
+</div>
+  
+</div>    
+  </body>
+ 
+
+</html>
