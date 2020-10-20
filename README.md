@@ -53,7 +53,7 @@ The destroying functionality will be implemented in the next version, which over
   <h3>fQR Weave listings:</h3>
   <ul>
   <li><a href="https://mtfvznw2pwxykoicvxpoe7ao5rp4nhaueueux2bbe4klxankdhra.arweave.net/ZMtcttp9r4U5Aq3e4nwO7F_GnBQlCUvoIScUu4GqGeI/#">Arweave Apps</a></li>
-  <li><a href="https://community.xyz/#k_YRh48Ex8SKU5MOnYcgNhTZBFNiJ1Kx1Ouv_mV5dD8">CommunityXYZ</a></li>
+  <li><a href="https://community.xyz/#l4iqeiSb4oJrpByg6rgiXlW1iF3cgjXLbHdG2JvAC_c">CommunityXYZ</a></li>
   </ul>
   
   <h3>Social media links:</h3>
