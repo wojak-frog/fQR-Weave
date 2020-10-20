@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>fQR Weave</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://unpkg.com/arweave/bundles/web.bundle.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Tajawal" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet" />
+
+	
+
+	
+
+
+    <style>
+* {box-sizing: border-box;}
+
+body { 
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+
+  font-family: "Cairo";
+  font-size: 23px
+}
+
+h2 {
+
+  font-family: "Tajawal";
+  font-size: 25px
+}
+
+h3 {
+
+  font-family: "Tajawal";
+  font-size: 17px
+}
+
+p {
+  font-family: "Cairo";
+  font-size: 19px
+}
+
+label {
+  font-family: "Cairo";
+  font-size: 20px
+}
+
+button {
+  font-family: "Cairo";
+  font-size: 15px
+}
+.header {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  padding: 20px 10px;
+}
+
+.header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px; 
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.header a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.header a.active {
+  background-color: black;
+  color: white;
+}
+
+.header-right {
+  float: right;
+}
+
+@media screen and (max-width: 500px) {
+  .header a {
+    float: left;
+    /*display: block;*/
+    text-align: left;
+  }
+  
+  .header-right {
+    float: right;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a href="https://fqrweave.tech" class="logo">fQR Weave</a>
+  <div class="header-right">
+    <a class="active" href="https://fqrweave.tech">Home</a>
+    <a href="https://arweave.net/5SaVRaBiaY2udRbwdrdZ59n1R0kNdFGRXWKXW7VbkV0">fQR Reader</a>
+  </div>
+</div> <br><br>
+
+<center><h3 style="padding: 40px"><b>To login, please import your Arweave key-file</b></h3></center> <br>
+
+<center><a style="float: center"><img src="https://i.ibb.co/5xF9SQ2/Arr.jpg" alt="Arr" border="0"></a></center>
+
+<center><h3 style="padding: 40px"><b>During the current stage, everybody is allowed to create a fQR and test
+it. In this stage of development, only one fQR generation per request is allowed .</b></h3></center>
+
+ 		<center><div style="background-color: lightgray; height: 250px">
+ 			
+ 			<br><h2>Import your JSON keyfile</h2>
+    		<input type="file" id="selectFiles" value="Import" style="float: center; border-radius: 30px; background-color: #000000; color: white; border-color: black; cursor: pointer"><br>
+  
+    <!-- <button id="import" style="float: center;">Import</button> -->
+ 
+    		<br><button id="login" style="float: center; border-radius: 30px; background-color: #000000; color: white; border-color: black; cursor: pointer; width: 100px"> Login</button>
+    		<p id="logged-wallet"></p>
+
+ 		</div></center> <br><br>
+  
+
+       <center><p><b><i>create a product's fingerprint (fQR):</i></b></p></center> <br><br>
+       
+        <center><div style="border-style: dashed; border-radius: 50px; height: 550px; width: 300px; float: center">
+        	
+        	<br><br><center><label for="product">product name: </label><center><br>
+
+        <input type="text" id="product" name="product" required
+                minlength="1" maxlength="100" size="20" style="border-width: 5px; border-style: solid"> <br><br>
+
+        <center><label for="product">product price ($): </label><center><br>
+
+        <input type="number" id="price" name="price" required
+                minlength="0" maxlength="5000" size="20" style="border-width: 5px; border-style: solid"> <br> <br>
+
+         <center><label for="product">Expiry Date: </label><center><br>
+
+        <input type="text" id="exp" name="exp" required
+                minlength="1" maxlength="100" size="20" style="border-width: 5px; border-style: solid"> <br><br>
+
+         <center><label for="product">Active Offers: </label><center><br>
+
+        <input type="text" id="offers" name="offers" required
+                minlength="1" maxlength="100" size="20" style="border-width: 5px; border-style: solid"> <br><br>
+
+        <button id="submit-order" style="float: center; border-radius: 30px; background-color: #000000; color: white; border-color: black; cursor: pointer"> create a fingerprint</button>
+
+        <p id="prdct_id"></p>
+       
+        <br>
+        <div id="placeHolder"></div>
+
+        </div><br><br><br><br><br><br></center>
+
+  
+
+</center> 
+
+
+<script type="text/javascript">
+  
+  let key;
+
+  document.getElementById('login').onclick = function() {
+  var files = document.getElementById('selectFiles').files;
+  console.log(files);
+  if (files.length <= 0) {
+    return false;
+  }
+  
+  var fr = new FileReader();
+
+
+
+  
+  fr.onload = function(e) { 
+  // console.log(typeof e.target.result);
+    var result = JSON.parse(e.target.result);
+    console.log(result)
+    console.log(typeof result)
+    var formatted = JSON.stringify(result, null, 2);
+    // document.getElementById('result').value = formatted;
+    // console.log(formatted)
+    // return formatted
+
+  key = result;
+  
+  }
+  
+  fr.readAsText(files.item(0));
+ 
+
+
+};
+
+  
+    
+    
+
+
+      document.getElementById("login").addEventListener("click", function(){
+
+
+
+      const arweave = Arweave.init();
+      arweave.network.getInfo().then(console.log);
+      // arweave.transactions.getData('brFuIk1XPzJJCs8YucYms74f__1EdUY-RkJil7EEB78', {decode: true, string: true}).then(data => {
+    // console.log(data);
+
+      var obj = setInterval(async ()=>{
+      clearInterval(obj)
+      // let key = await arweave.wallets.generate();
+    	verified_accs = [];
+      let pbAdrs;
+      arweave.wallets.jwkToAddress(key).then((address) => {
+      	if (address in verified_accs) {
+
+      		document.getElementById('logged-wallet').innerHTML = (`logged as: <b> ${address}</b> (verified) <br>`);
+      	} else { document.getElementById('logged-wallet').innerHTML = (`logged as: <b> ${address}</b> (unverified) <br>`);}
+      
+
+	});
+
+
+// Plain text
+  
+  });
+
+
+
+      })
+
+
+
+  document.getElementById('submit-order').addEventListener("click", function(){
+    const arweave = Arweave.init();
+    arweave.network.getInfo().then(console.log);
+
+    var obj = setInterval(async ()=>{
+      clearInterval(obj)
+
+      const metadata = `# product name: ${document.getElementById('product').value}
+
+      					# price: ${document.getElementById('price').value}
+
+      					# expDate: ${document.getElementById('exp').value}
+
+      					# ActiveOffers: ${document.getElementById('offers').value} `
+    
+    let transactionA = await arweave.createTransaction({
+    data: metadata.toString()
+  }, key);
+
+  transactionA.addTag(document.getElementById('price').value);
+  await arweave.transactions.sign(transactionA, key);
+  const response = await arweave.transactions.post(transactionA);
+
+  // console.log(response.status); tx_id 2cF2NeCwCHqNfN0vBJzpRxVN4i5qIBl-WF6_zcrJgXo
+
+   console.log('product ID: ',transactionA.id);
+
+  
+
+   await arweave.transactions.getData(String(transactionA.id), {decode: true, string: true}).then(function(data) {document.getElementById('prdct_id').innerHTML = (`<a href="https://viewblock.io/arweave/tx/${transactionA.id}">product ID</a>`)
+
+
+      var typeNumber = 4;
+   var errorCorrectionLevel = 'L';
+   var qr = qrcode(typeNumber, errorCorrectionLevel);
+
+
+   qr.addData(transactionA.id);
+   qr.make();
+   
+   document.getElementById('placeHolder').innerHTML = qr.createImgTag();
+
+
+
+
+
+                })
+  } );
+
+   });
+
+    
+
+  
+
+
+  </script>
+
+    
+
+    <br><br><br><br>
+
+<div style="position: static; left: 0; bottom: 0; width: 100%; background-color: gray; color: white; ">
+  <div style="text-align: left; margin-left: 1.5em">
+    <br>
+ 
+    <a href="https://www.arweave.org/wallet" style="text-decoration: none; color: #D5D5D5"><p> # Claim A Token<p></a>
+      <a href="https://arweave.org" style="text-decoration: none; color: #D5D5D5"><p> # Arweave.org<p></a>
+        <a href="https://www.arweave.org/technology#permaweb" style="text-decoration: none; color: #D5D5D5"><p> # PermaWeb<p></a>
+  </div>
+
+  <div style="text-align: right; margin-right: 1.5em">
+    <br>
+ 
+    <a href="https://t.me/fqr_weave" style="text-decoration: none; color: #D5D5D5"><p> # Telegram<p></a>
+      <a href="https://twitter.com/Fqr_Weave" style="text-decoration: none; color: #D5D5D5"><p> # Twitter<p></a>
+        <a href="https://discord.gg/pcdGGs" style="text-decoration: none; color: #D5D5D5"><p> # Discord<p></a>
+        <a href="https://github.com/wojak-frog/fQR-Weave" style="text-decoration: none; color: #D5D5D5"><p> # Github<p></a>
+  </div>
+
+  <div style="text-align: center; color: #D5D5D5"><p>© Copyright 2020. all rights reserved</p></div>
+  
+</div>
+  
+</div>    
+</body>
+<script type="text/javascript" src="testing.js"></script>
+
+</html>
