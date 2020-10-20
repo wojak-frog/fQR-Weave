@@ -63,3 +63,7 @@ The destroying functionality will be implemented in the next version, which over
   <li><a href="https://t.me/fqr_weave">Telegram</a></li>
   </ul>
   
+  <h1>License:</h1>
+  MIT license
+  @ copyright 2020 fQR Weave
+  
