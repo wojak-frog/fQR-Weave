@@ -48,7 +48,9 @@ The destroying functionality will be implemented in the next version, which over
     <li><a href="https://l33wlywrm5ainklcefljurvcbxamf5o2cujqgfda5xzi2powi3ga.arweave.net/Xvdl4tFnQIapYiFWmkaiDcDC9doVEwMUYO3yjT3WRsw">fQR Weave project</a></li>
     <li><a href="https://hjyckowqnnzrgirl3sqwz65youx2t75fsaojrea2odcjos5xjf3q.arweave.net/OnAlOtBrcxMiK9yhbPu4dS-p_6WQHJiQGnDEl0u3SXc">fQR Generator<a></li>
     <li><a href="https://ahuakhbrcivsfiiwvukizwxihgtm7voycntibfrtog2a53oeajba.arweave.net/AegFHDESKyKhFq0UjNroOabP1dgTZoCWM3G0Du3EAkI">fQR Reader</a></li>
+    <li><a href="https://fqrweave.tech/docs/fQR-Weave-Lightpaper.pdf">Light Paper</a></li>
   </ul>
+
   
   <h3>fQR Weave listings:</h3>
   <ul>
