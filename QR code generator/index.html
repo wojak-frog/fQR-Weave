@@ -8,6 +8,7 @@
   <script src="https://unpkg.com/arweave/bundles/web.bundle.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Tajawal" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet" />
+  <script src="tron.js"></script>
 
 	
 
@@ -109,7 +110,7 @@ button {
   <a href="https://fqrweave.tech" class="logo">fQR Weave</a>
   <div class="header-right">
     <a class="active" href="https://fqrweave.tech">Home</a>
-    <a href="https://arweave.net/5SaVRaBiaY2udRbwdrdZ59n1R0kNdFGRXWKXW7VbkV0">fQR Reader</a>
+    <a href="https://arweave.net/fML-z36fYavERixEN32lc9SQ6A3TSsh3dgA9uzUY0iQ">fQR Reader</a>
   </div>
 </div> <br><br>
 
@@ -118,7 +119,7 @@ button {
 <center><a style="float: center"><img src="https://i.ibb.co/5xF9SQ2/Arr.jpg" alt="Arr" border="0"></a></center>
 
 <center><h3 style="padding: 40px"><b>During the current stage, everybody is allowed to create a fQR and test
-it. In this stage of development, only one fQR generation per request is allowed .</b></h3></center>
+it. In this stage of development, only one fQR generation per request is allowed .</b></h3><h3 style="padding: 40px"><b>The cuurent fQR Generator instance represents a prototype of certificates authenticator</b></h3></center>
 
  		<center><div style="background-color: lightgray; height: 250px">
  			
@@ -133,35 +134,37 @@ it. In this stage of development, only one fQR generation per request is allowed
  		</div></center> <br><br>
   
 
-       <center><p><b><i>create a product's fingerprint (fQR):</i></b></p></center> <br><br>
+       <center><p><b><i>create a certificate's fingerprint (fQR):</i></b></p></center> <br><br>
        
-        <center><div style="border-style: dashed; border-radius: 50px; height: 550px; width: 300px; float: center">
+        <center><div style="border-style: dashed; border-radius: 50px; height: 600px; width: 300px; float: center">
         	
-        	<br><br><center><label for="product">product name: </label><center><br>
+        	<br><br><center><label for="product">Student's Name: </label><center><br>
 
-        <input type="text" id="product" name="product" required
+        <input type="text" id="student" name="product" required
                 minlength="1" maxlength="100" size="20" style="border-width: 5px; border-style: solid"> <br><br>
 
-        <center><label for="product">product price ($): </label><center><br>
+             <center><label for="product">Student's Birthday: </label><center><br>
 
-        <input type="number" id="price" name="price" required
-                minlength="0" maxlength="5000" size="20" style="border-width: 5px; border-style: solid"> <br> <br>
-
-         <center><label for="product">Expiry Date: </label><center><br>
-
-        <input type="text" id="exp" name="exp" required
+        <input type="text" id="student-bd" name="product" required
                 minlength="1" maxlength="100" size="20" style="border-width: 5px; border-style: solid"> <br><br>
 
-         <center><label for="product">Active Offers: </label><center><br>
+        <center><label for="product">Departement: </label><center><br>
 
-        <input type="text" id="offers" name="offers" required
+        <input type="text" id="course-name" name="exp" required
                 minlength="1" maxlength="100" size="20" style="border-width: 5px; border-style: solid"> <br><br>
 
-        <button id="submit-order" style="float: center; border-radius: 30px; background-color: #000000; color: white; border-color: black; cursor: pointer"> create a fingerprint</button>
+
+         <center><label for="product">Issue Date: </label><center><br>
+
+        <input type="text" id="course-date" name="exp" required
+                minlength="1" maxlength="100" size="20" style="border-width: 5px; border-style: solid"> <br><br>
+
+
+        <button id="submit-order" style="float: center; border-radius: 30px; background-color: #000000; color: white; border-color: black; cursor: pointer"> create the fingerprint</button>
 
         <p id="prdct_id"></p>
        
-        <br>
+        <br><br><br>
         <div id="placeHolder"></div>
 
         </div><br><br><br><br><br><br></center>
@@ -217,21 +220,19 @@ it. In this stage of development, only one fQR generation per request is allowed
 
 
       const arweave = Arweave.init();
+     
       arweave.network.getInfo().then(console.log);
       // arweave.transactions.getData('brFuIk1XPzJJCs8YucYms74f__1EdUY-RkJil7EEB78', {decode: true, string: true}).then(data => {
     // console.log(data);
 
       var obj = setInterval(async ()=>{
       clearInterval(obj)
-      // let key = await arweave.wallets.generate();
-    	verified_accs = [];
+    
       let pbAdrs;
       arweave.wallets.jwkToAddress(key).then((address) => {
-      	if (address in verified_accs) {
-
-      		document.getElementById('logged-wallet').innerHTML = (`logged as: <b> ${address}</b> (verified) <br>`);
-      	} else { document.getElementById('logged-wallet').innerHTML = (`logged as: <b> ${address}</b> (unverified) <br>`);}
-      
+      	
+      		document.getElementById('logged-wallet').innerHTML = (`logged as: <b>${address}</b> <br>`);
+      	
 
 	});
 
@@ -253,38 +254,33 @@ it. In this stage of development, only one fQR generation per request is allowed
     var obj = setInterval(async ()=>{
       clearInterval(obj)
 
-      const metadata = `# product name: ${document.getElementById('product').value}
-
-      					# price: ${document.getElementById('price').value}
-
-      					# expDate: ${document.getElementById('exp').value}
-
-      					# ActiveOffers: ${document.getElementById('offers').value} `
+      const metadata = `<!DOCTYPE html><html><head><title>Demo University Certification</title><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><style>table,th,td{border: 1px solid black;}</style></head><body><center><h1>✅  This Certification is Verified By Demo University ✅ </h1></center><center><h2> https://demo-uni.com</h2></center> <br><br><center><div><table><tr><th>Data</th><th>info</th></tr><tr><td>student's name</td><td>${document.getElementById('student').value}</td></tr><tr><td>student's Birthday</td><td>${document.getElementById('student-bd').value}</td></tr><tr><td>departement</td><td>${document.getElementById('course-name').value}</td></tr><tr><td>issue date</td><td>${document.getElementById('course-date').value}</td></tr><tr><td>Academic Center</td><td><a href="http://ictd-lb.com">ICTD Lebanon</a></td></tr></table></div></center><div style="margin-left: 1em"><p>Manual checking: to check this certification's legitimacy, please go to <a href="https://viewblock.io/arweave">viewblock</a> and input the hash ID to check the sender address </p></div></body></html>`
     
-    let transactionA = await arweave.createTransaction({
-    data: metadata.toString()
+    
+    let transaction = await arweave.createTransaction({
+    data: String(metadata)
   }, key);
 
-  transactionA.addTag(document.getElementById('price').value);
-  await arweave.transactions.sign(transactionA, key);
-  const response = await arweave.transactions.post(transactionA);
+  transaction.addTag('Content-Type', 'text/html');
+  await arweave.transactions.sign(transaction, key);
+  const response = await arweave.transactions.post(transaction);
 
-  // console.log(response.status); tx_id 2cF2NeCwCHqNfN0vBJzpRxVN4i5qIBl-WF6_zcrJgXo
 
-   console.log('product ID: ',transactionA.id);
+   console.log('product ID: ',transaction.id);
+   console.log(transaction)
 
   
 
-   await arweave.transactions.getData(String(transactionA.id), {decode: true, string: true}).then(function(data) {document.getElementById('prdct_id').innerHTML = (`<a href="https://viewblock.io/arweave/tx/${transactionA.id}">product ID</a>`)
+   await arweave.transactions.getData(String(transaction.id), {decode: true, string: true}).then(function(data) {document.getElementById('prdct_id').innerHTML = (`<a href="https://arweave.net/${transaction.id}">Certification ID</a>`)
 
-
+   	// Generating a QR code from transaction.id string
       var typeNumber = 4;
-   var errorCorrectionLevel = 'L';
-   var qr = qrcode(typeNumber, errorCorrectionLevel);
+      var errorCorrectionLevel = 'L';
+   	  var qr = qrcode(typeNumber, errorCorrectionLevel);
 
 
-   qr.addData(transactionA.id);
-   qr.make();
+   	  qr.addData(transaction.id);
+      qr.make();
    
    document.getElementById('placeHolder').innerHTML = qr.createImgTag();
 
