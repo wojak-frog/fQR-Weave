@@ -98,7 +98,7 @@ p {
   <div class="header-right">
     <a class="active" href="https://fqrweave.tech">Home</a>
   </div>
-</div> <br><br><br><br><br><br>
+</div> <br><br><br><br>
 
 
 <center><div style="border-style: dashed; border-radius: 50px; height: 550px; width: 300px; float: center">
@@ -133,23 +133,55 @@ p {
       <script type="text/javascript">
         
         document.getElementById('search').addEventListener("click", function(){
+       
         const arweave = Arweave.init();
-
+        
+          
         var obj = setInterval(async ()=>{
         clearInterval(obj)
-        await arweave.transactions.getData(String(document.getElementById("product").value), {decode: true, string: true}).then(function(data) {document.getElementById('test').innerHTML = data})
+        let verifiedWalletsArray = [];
+        const address = 'MtgIRVxVRaooHlL3vHE4Bu875vtnDelgJzwrZ7WnDyo'
+        let res = await arweave.wallets.getLastTransactionID(address)
+        arweave.transactions.getData(res, {decode:true, string:true}).then(data => {
+        verifiedWalletsArray = (data.split(' '));
+
+          getVrfdAdrs();
+  
+
+        })
+    
+        function getVrfdAdrs() {
+
+          console.log(verifiedWalletsArray)
+
+          let obj2 = setInterval(async ()=>{
+          clearInterval(obj2)
+
+          let tx = arweave.transactions.get(String(document.getElementById('product').value)).then(hash => {
+            console.log(hash)
+            if ( (verifiedWalletsArray.find(owner => owner === hash['owner'])) ) {
+              window.open(`https://arweave.net/${document.getElementById("product").value}`)
+            } else {alert('invalid hash ID')}
+
+            })
+           });
+        }   
+        // await arweave.transactions.get(verifiedWalletsArray).then(msg => console.log(msg))
+        
+        // window.open(`https://arweave.net/${document.getElementById("product").value}`)
       }) })
 
       </script>
 
       <center><p id = "test"></p></center>
 
+
       
 </center></div>
 
     <br><br><br><br><br><br><br><br><br><br><br><br>
 
-<div style="position: static; left: 0; bottom: 0; width: 100%; background-color: gray; color: white; ">
+<div style="position: relative; left: 0; bottom: 0; width: 100%; background-color: gray; color: white; ">
   <div style="text-align: left; margin-left: 1.5em">
     <br>
  
