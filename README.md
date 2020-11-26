@@ -1,8 +1,7 @@
 # fQR Weave
 a new QR code based on ARweave blockchain to replace and solve the trustless 3rd parties (Retailers): 
 
-<br>alpha v0.0.1 https://fqrweave.tech 
-<br>alpha v0.0.2 https://fqrweave.tech/alpha/home
+<br>alpha v0.0.2 https://fqrweave.tech
 
 <h1>What is Arweave blockchain?</h1>
 <p>Arweave is an information technology company that specializes in data storage, blockchain, and serverless web. It features a software platform thet offers unparalleled levels of data replication and security for users and financial inc</p>
@@ -11,8 +10,8 @@ a new QR code based on ARweave blockchain to replace and solve the trustless 3rd
 <p>In the current version (alpha release), both fQR Generator and fQR Reader are available for testing. In the further versions, fQR Generator will be custom for each
 product's owner (user) only:</p>
 <ul>
-  <li> <a href="https://hjyckowqnnzrgirl3sqwz65youx2t75fsaojrea2odcjos5xjf3q.arweave.net/OnAlOtBrcxMiK9yhbPu4dS-p_6WQHJiQGnDEl0u3SXc">fQR Generator</a> </li>
-  <li> <a href="https://ahuakhbrcivsfiiwvukizwxihgtm7voycntibfrtog2a53oeajba.arweave.net/AegFHDESKyKhFq0UjNroOabP1dgTZoCWM3G0Du3EAkI">fQR Reader</a> </li>
+  <li> <a href="https://qufdcflwo2x6kw6tq5ggrv42p65v4fcucxrpxbced6ghyzio5noq.arweave.net/hQoxFXZ2r-Vb04dMaNeaf7teFFQV4vuERB-MfGUO610">fQR Generator</a> </li>
+  <li> <a href="https://doikimi2ockebcpdlnbwy4dw2kq6k3upgnj5tyesppjrmwcnxrhq.arweave.net/G5CkMRpwlECJ41tDbHB20qHlbo8zU9ngknvTFlhNvE8">fQR Reader</a> </li>
 </ul>
 
  <h3>fQR Generator:</h3>
